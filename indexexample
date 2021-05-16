@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+	<title>ナポリch なかみ検索</title>
+	<meta charset="utf-8" />
+	<meta name="description" content="筑波大学 KdBっぽいなにか" />
+	<meta name="keywords" content="筑波大学,シラバス,KbB,alternative-tsukuba-kdb,alternative-kdb" />
+	<meta name="author" content="いなにわうどん" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:creator" content="@kyoto_mast21" />
+	<meta name="twitter:site" content="@kyoto_mast21" />
+	<meta property="og:url" content="https://make-it-tsukuba.github.io/alternative-tsukuba-kdb/" />
+	<meta property="og:title" content="alternative-tsukuba-kdb" />
+	<meta property="og:description" content="筑波大学 KdBっぽいなにか" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- <link rel="icon" href="favicon.ico" />
+	<meta property="og:image" content="favicon.ico" /> -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+	<link href="style.css" rel="stylesheet" />
+
+	<script src="script.js"></script>
+</head>
+
+<body>
+	<header>
+		<div class="content">
+			<form>
+				<p>
+					<span class="h4">キーワード</span>
+					<input type="text" placeholder="キーワード" /> <a href="#" id="submit" class="button">検索</a>
+					<span id="keyword-options">
+						<label><input type="checkbox" id="check-title" checked />タイトル</label>
+						<label><input type="checkbox" id="check-tag" checked />タグ</label>
+						<label><input type="checkbox" id="check-comment" />投コメ</label>
+						<label><input type="checkbox" id="check-keyword" />その他キーワード</label>
+					</span>
+				</p>
+				<p id="requirement">
+					<span class="h4">要件</span>
+					<select id="req-a" class="requirement">
+						<option value="null">指定なし</option>
+					</select>
+					<select id="req-b" class="requirement">
+					</select>
+					<select id="req-c" class="requirement">
+					</select>
+					<a href="#" id="clear" class="button">検索条件をクリア</a>
+				</p>
+				<div id="period">
+					<p>
+						<span class="h4">学期</span>
+						<label><input type="radio" name="season" value="null" checked>―</label>
+						<label><input type="radio" name="season" value="春">春</label>
+						<label><input type="radio" name="season" value="秋">秋</label>
+						／
+						<label><input type="radio" name="module" value="null" checked>―</label>
+						<label><input type="radio" name="module" value="A">A</label>
+						<label><input type="radio" name="module" value="B">B</label>
+						<label><input type="radio" name="module" value="C">C</label>
+					</p>
+					<p>
+						<span class="h4">時限</span>
+						<label><input type="radio" name="day" value="null" checked>―</label>
+						<label><input type="radio" name="day" value="月">月</label>
+						<label><input type="radio" name="day" value="火">火</label>
+						<label><input type="radio" name="day" value="水">水</label>
+						<label><input type="radio" name="day" value="木">木</label>
+						<label><input type="radio" name="day" value="金">金</label>
+						<label><input type="radio" name="day" value="土">土</label>
+						<label><input type="radio" name="day" value="日">日</label>
+						／
+						<label><input type="radio" name="period" value="null" checked>―</label>
+						<label><input type="radio" name="period" value="1">1</label>
+						<label><input type="radio" name="period" value="2">2</label>
+						<label><input type="radio" name="period" value="3">3</label>
+						<label><input type="radio" name="period" value="4">4</label>
+						<label><input type="radio" name="period" value="5">5</label>
+						<label><input type="radio" name="period" value="6">6</label>
+					</p>
+				</div>
+				<div id="period-sp">
+					<p>
+						<span class="h4">学期・時限</span>
+						<select id="select-module">
+							<option value="null">すべて</option>
+							<option>春A</option>
+							<option>春B</option>
+							<option>春C</option>
+							<option>秋A</option>
+							<option>秋B</option>
+							<option>秋C</option>
+						</select>モジュール
+						<select id="select-day">
+							<option value="null">-</option>
+							<option>月</option>
+							<option>火</option>
+							<option>水</option>
+							<option>木</option>
+							<option>金</option>
+							<option>土</option>
+							<option>日</option>
+						</select>曜日
+						<select id="select-period">
+							<option value="null">-</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+						</select>限
+					</p>
+				</div>
+				<p>
+					<span class="h4">実施形態</span>
+					<label><input type="radio" name="online" value="null" checked>―</label>
+					<label><input type="radio" name="online" value="対面">対面</label>
+					<label><input type="radio" name="online" value="オンデマンド">オンデマンド</label>
+					<label><input type="radio" name="online" value="同時双方向">同時双方向</label>
+				</p>
+				<p>
+					<span class="h4">標準履修年次</span>
+					<label><input type="radio" name="year" value="null" checked>―</label>
+					<label><input type="radio" name="year" value="1">1</label>
+					<label><input type="radio" name="year" value="2">2</label>
+					<label><input type="radio" name="year" value="3">3</label>
+					<label><input type="radio" name="year" value="4">4</label>
+					<label><input type="radio" name="year" value="5">5</label>
+					<label><input type="radio" name="year" value="6">6</label>
+				</p>
+				<p>
+					<a href="#" id="clear-sp" class="button">検索条件をクリア</a>
+					<a href="#" id="submit-sp" class="button">検索</a>
+				</p>
+			</form>
+		</div>
+	</header>
+
+	<div id="page">
+		<main>
+			<table>
+				<thead>
+					<tr>
+						<th>科目番号／科目名</th>
+						<th>単位／年次</th>
+						<th>学期／時期</th>
+						<th>教室</th>
+						<th>担当</th>
+						<th>実施形態</th>
+						<th>概要</th>
+						<th>備考</th>
+					</tr>
+				</thead>
+				<tbody>	
+				</tbody>
+			</table>
+		</main>
+		<footer>
+			Contributed by <a href="https://github.com/inaniwaudon">いなにわうどん</a>, <a href="https://github.com/frodo821">frodo821</a>, <a href="https://github.com/eggplants">eggplants</a>, <a href="https://github.com/maru2213">maru2213</a>, et al.<!--
+			--><span style="margin: 0 1rem;">/</span><!--
+			--><a href="javascript:void(0)" id="download">CSVダウンロード</a><br/>
+
+			<span id="updated-date"></span>時点での 筑波大学KdB（<a href="https://kdb.tsukuba.ac.jp/">https://kdb.tsukuba.ac.jp/</a>）のデータに基づきます
+		</footer>
+	</div>
+</body>
+
+</html>
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
